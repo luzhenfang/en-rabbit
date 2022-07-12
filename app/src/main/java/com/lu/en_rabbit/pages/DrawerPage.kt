@@ -2,8 +2,11 @@ package com.lu.en_rabbit.pages
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.Card
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -12,9 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.lu.en_rabbit.R
 
 
 /**
@@ -34,11 +39,20 @@ fun DrawerPage() {
         Text(text = "更新日志", fontSize = 25.sp)
         Spacer(modifier = Modifier.height(10.dp))
         Text(text = "音频来源: bilibil@英语兔")
-        Text(text = "github:代码整理好后再开源")
+        Row() {
+            Icon(painter = painterResource(id = R.drawable.ic_github_fill), contentDescription = "")
+            SelectionContainer {
+                Text(
+                    modifier = Modifier.padding(
+                        top = 3.dp,
+                        start = 4.dp
+                    ), text = "https://github.com/luzhenfang/en-rabbit", fontSize = 13.sp
+                )
+            }
+
+        }
         Spacer(modifier = Modifier.height(10.dp))
         Text(text = "by 凉拌西蓝花")
-        Text(text = "power by Kotlin Compose.", color = Color.Gray)
-
     }
 
     Column(modifier = Modifier.verticalScroll(ScrollState(0))) {
